@@ -1,0 +1,256 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Materials/Green.tres" type="Material" id=1]
+[ext_resource path="res://Assets/Materials/Dark.tres" type="Material" id=2]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Materials/Purple.tres" type="Material" id=4]
+[ext_resource path="res://Assets/HDRIs/AllSky_Space_InTheVortex Equirect.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Islands/Island0.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/MMITool/Node.gd" type="Script" id=7]
+[ext_resource path="res://Assets/Models/Objects/OBJ/CUPIC_ICEBERG.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://Scenes/Buildings/Fantasy/ReverseCone.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Buildings/Fantasy/CirclePlatform.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Buildings/Fantasy/WallWithStairs.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/Arenas/TestArena.gd" type="Script" id=12]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = ExtResource( 5 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+glow_enabled = true
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 12 )
+
+[node name="ReverseCone" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.4717, -122.6 )
+
+[node name="FPS" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 8 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+calculate_tangents = false
+use_collision = true
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+width = 50.0
+depth = 50.0
+material = ExtResource( 2 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+material = ExtResource( 1 )
+
+[node name="CSGBox14" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 2, 17 )
+material = ExtResource( 1 )
+
+[node name="CSGBox15" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 2, 17 )
+material = ExtResource( 1 )
+
+[node name="CSGBox16" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 12 )
+material = ExtResource( 1 )
+
+[node name="CSGBox17" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 2, 12 )
+material = ExtResource( 1 )
+
+[node name="CSGBox18" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 2, 6 )
+height = 1.0
+depth = 4.0
+material = ExtResource( 1 )
+
+[node name="CSGBox19" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4, -2 )
+width = 6.0
+depth = 4.0
+material = ExtResource( 1 )
+
+[node name="CSGBox24" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 6, -46 )
+width = 6.0
+depth = 4.0
+material = ExtResource( 1 )
+
+[node name="CSGBox25" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 12, -46 )
+material = ExtResource( 1 )
+
+[node name="CSGBox22" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 6, -18 )
+height = 6.0
+depth = 6.0
+material = ExtResource( 4 )
+
+[node name="CSGBox23" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 6, -31 )
+height = 6.0
+depth = 6.0
+material = ExtResource( 4 )
+
+[node name="CSGBox20" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 4, -2 )
+width = 6.0
+depth = 4.0
+material = ExtResource( 1 )
+
+[node name="CSGBox21" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 8, -1 )
+width = 1.0
+height = 1.0
+depth = 1.0
+material = ExtResource( 1 )
+
+[node name="CSGBox13" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 0 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox26" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -33.5, 1.9, 0 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox27" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.573577, 0, 0.819152, 0, 1, 0, -0.819152, 0, 0.573577, -50.1, 3, -5.4 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox28" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -59.9, 3, -19.5 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox29" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, -57.4151, 4.1, -35.9073 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox30" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, -45.5055, 5.2, -48.6698 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox31" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( -0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, -28.5849, 5.2, -51.5927 )
+height = 8.0
+depth = 18.0
+material = ExtResource( 4 )
+
+[node name="CSGBox7" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 22 )
+height = 1.0
+material = ExtResource( 1 )
+
+[node name="CSGBox8" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 19 )
+height = 1.0
+material = ExtResource( 1 )
+
+[node name="CSGBox9" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 15 )
+width = 4.0
+height = 4.0
+material = ExtResource( 4 )
+
+[node name="CSGBox10" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 8, 15 )
+width = 4.0
+material = ExtResource( 1 )
+
+[node name="CSGBox12" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 13, 12 )
+material = ExtResource( 1 )
+
+[node name="CSGBox11" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 8, 7 )
+width = 10.0
+depth = 6.0
+material = ExtResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3 )
+height = 1.0
+material = ExtResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 0 )
+height = 8.0
+material = ExtResource( 4 )
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 5, 0 )
+height = 8.0
+material = ExtResource( 4 )
+
+[node name="CSGBox6" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 17, 0 )
+width = 8.0
+material = ExtResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -1, -4.21469e-08, -4.21469e-08, 0, -0.707107, 0.707107, -5.96046e-08, 0.707107, 0.707107, 0, 17, 0 )
+shadow_enabled = true
+
+[node name="island1" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 40.7, -23.6, -31 )
+
+[node name="MMITool" type="Spatial" parent="."]
+script = ExtResource( 7 )
+mesh = ExtResource( 8 )
+add_collider = true
+
+[node name="MeshInstance" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00709406, 0.00573576, 0.00409576, -0.000591248, 0.00627507, -0.00776363, -0.00702315, 0.00526541, 0.0047907, 0, 3.2, -13.6 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00709407, 0.00573576, 0.00409576, 0.00454804, 0.000713938, -0.00887725, -0.00538419, 0.00816035, -0.00210218, 6.8, 7.5, -14.5 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00107597, 0.00313997, 0.00943307, 0.00835779, 0.00485276, -0.00256865, -0.00538419, 0.00816035, -0.00210218, 7.9, 10.6, -20.4 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00822176, 0.00563404, 0.000812556, 0.00184745, -0.00129086, -0.00974272, -0.00538419, 0.00816035, -0.00210218, 7.9, 16.1, -30.1 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00822176, 0.00563404, 0.000812556, -0.00552472, 0.0082418, -0.00124504, -0.00137116, 0.000574731, 0.00988886, 0.4, 25.3, -31.5 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="MMITool"]
+transform = Transform( 0.00800355, -0.00581781, 0.00144787, -0.00033685, 0.00197483, 0.00979727, -0.00598579, -0.00789007, 0.00138459, -6.5, 37.4, -34.4 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="CirclePlatform" parent="." instance=ExtResource( 10 )]
+transform = Transform( 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 42.4, 0, 2 )
+
+[node name="WallWithStairs" parent="." instance=ExtResource( 11 )]
+transform = Transform( 0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -5.9, 4.3, -35.3 )
+
+[node name="WallWithStairs2" parent="." instance=ExtResource( 11 )]
+transform = Transform( -0.173648, 0, -0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 11.4, 4.3, -70.2 )

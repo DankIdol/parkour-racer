@@ -1,0 +1,193 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/Materials/Dark.tres" type="Material" id=1]
+[ext_resource path="res://Assets/HDRIs/AllSky_Space_InTheVortex Equirect.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Islands/Island0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Islands/island01.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Islands/island02.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Rocks/rock02.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Rocks/rock03.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Rocks/rock01.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Rocks/rock06.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Buildings/Fantasy/Rocks/rock05.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Objects/Apple.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Objects/Airplane.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Objects/Dog in plane.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Objects/Earth.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/Objects/Eggplant.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Objects/Magic Carpet.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/Objects/Paper airplane.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/Objects/Planet.tscn" type="PackedScene" id=19]
+
+[sub_resource type="CubeMesh" id=1]
+material = ExtResource( 1 )
+size = Vector3( 4, 1, 4 )
+
+[sub_resource type="ConcavePolygonShape" id=2]
+data = PoolVector3Array( -2, 0.5, 2, 2, 0.5, 2, -2, -0.5, 2, 2, 0.5, 2, 2, -0.5, 2, -2, -0.5, 2, 2, 0.5, -2, -2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2, 2, -0.5, -2, 2, 0.5, 2, 2, 0.5, -2, 2, -0.5, 2, 2, 0.5, -2, 2, -0.5, -2, 2, -0.5, 2, -2, 0.5, -2, -2, 0.5, 2, -2, -0.5, -2, -2, 0.5, 2, -2, -0.5, 2, -2, -0.5, -2, 2, 0.5, 2, -2, 0.5, 2, 2, 0.5, -2, -2, 0.5, 2, -2, 0.5, -2, 2, 0.5, -2, -2, -0.5, 2, 2, -0.5, 2, -2, -0.5, -2, 2, -0.5, 2, 2, -0.5, -2, -2, -0.5, -2 )
+
+[sub_resource type="PanoramaSky" id=3]
+radiance_size = 1
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.8
+fog_transmit_enabled = true
+fog_height_enabled = true
+tonemap_mode = 2
+tonemap_exposure = 0.8
+glow_bloom = 0.6
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Platform" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platform"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform/StaticBody"]
+shape = SubResource( 2 )
+
+[node name="FPS" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.4, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="Islands" type="Spatial" parent="."]
+
+[node name="island1" parent="Islands" instance=ExtResource( 4 )]
+transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -43.1, -23.6, 65.3074 )
+
+[node name="island01" parent="Islands" instance=ExtResource( 5 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 48.6, 32.8, 88.5 )
+
+[node name="island02" parent="Islands" instance=ExtResource( 6 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 49.5, -17, 21.3 )
+
+[node name="island2" parent="Islands" instance=ExtResource( 4 )]
+transform = Transform( -0.618169, -0.330366, 0.713249, -0.144544, 0.939693, 0.309975, -0.772641, 0.0885213, -0.628641, 61.9221, -11.0225, 55.1937 )
+
+[node name="island03" parent="Islands" instance=ExtResource( 5 )]
+transform = Transform( -9.15478, -3.30366, 2.29693, -2.96198, 9.39693, 1.7101, -2.72337, 0.885213, -9.58121, -35.3327, 18.781, 12.9917 )
+
+[node name="island04" parent="Islands" instance=ExtResource( 6 )]
+transform = Transform( -9.15478, -3.30366, 2.29693, -2.96198, 9.39693, 1.7101, -2.72337, 0.885213, -9.58121, -35.1398, -39.7742, 72.724 )
+
+[node name="Rocks" type="Spatial" parent="."]
+
+[node name="rock08" parent="Rocks" instance=ExtResource( 8 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 19.2, 6, 16.6 )
+
+[node name="rock09" parent="Rocks" instance=ExtResource( 8 )]
+transform = Transform( 0.167731, -0.984808, -0.0449435, 0.951251, 0.173648, -0.254887, 0.258819, 0, 0.965926, 31.7, -1.3, 16.6 )
+
+[node name="rock01" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 7.4, 0, 19.4 )
+
+[node name="rock02" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8, -2.6, 19.4 )
+
+[node name="rock03" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 3.8, 1.7, 23.7 )
+
+[node name="rock04" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.766044, -0.604023, 0.219846, 0.642788, 0.719846, -0.262003, 0, 0.34202, 0.939693, 4.3, 2.6, 18 )
+
+[node name="rock05" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, -21.2, 1.8, 13.4 )
+
+[node name="rock06" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.8, 4.2, 86.3 )
+
+[node name="rock07" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 1, -1.1, 74.8 )
+
+[node name="rock10" parent="Rocks" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 40 )
+
+[node name="rock11" parent="Rocks" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -13.3, 2.3, 40 )
+
+[node name="rock12" parent="Rocks" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 16.2, 0, 34.5 )
+
+[node name="rock13" parent="Rocks" instance=ExtResource( 10 )]
+transform = Transform( 0.707107, 0.541675, -0.454519, -0.707107, 0.541675, -0.454519, 0, 0.642788, 0.766044, -35.7, 0, 34.5 )
+
+[node name="rock14" parent="Rocks" instance=ExtResource( 8 )]
+transform = Transform( 0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 3.7528, -15.6, 9.60355 )
+
+[node name="rock15" parent="Rocks" instance=ExtResource( 8 )]
+transform = Transform( 0.261398, -0.892539, 0.367485, 0.951251, 0.173648, -0.254887, 0.163684, 0.416198, 0.89442, 15.0816, -22.9, 4.32083 )
+
+[node name="rock16" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.984807, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984807, -5.7583, -21.6, 17.1281 )
+
+[node name="rock17" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -9.02101, -24.2, 18.6495 )
+
+[node name="rock18" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.906308, -0.109382, 0.408218, 0, 0.965926, 0.258819, -0.422618, -0.23457, 0.875426, -7.20375, -19.9, 22.5467 )
+
+[node name="rock19" parent="Rocks" instance=ExtResource( 9 )]
+transform = Transform( 0.694272, -0.402887, 0.59638, 0.642788, 0.719846, -0.262003, -0.323744, 0.565247, 0.75874, -9.15952, -19, 17.1694 )
+
+[node name="rock20" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -34.2144, -19.8, 23.7771 )
+
+[node name="rock21" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 21.9711, -17.4, 78.0137 )
+
+[node name="rock22" parent="Rocks" instance=ExtResource( 7 )]
+transform = Transform( 0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, 11.8544, -22.7, 70.0423 )
+
+[node name="rock23" parent="Rocks" instance=ExtResource( 11 )]
+transform = Transform( 0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, -19.1663, -21.6, 46.1099 )
+
+[node name="rock24" parent="Rocks" instance=ExtResource( 11 )]
+transform = Transform( 0.906308, -0.109382, 0.408218, 0, 0.965926, 0.258819, -0.422618, -0.23457, 0.875426, -15.8129, -19.3, 44.5462 )
+
+[node name="rock25" parent="Rocks" instance=ExtResource( 10 )]
+transform = Transform( 0.906308, -0.0368336, 0.42101, 0, 0.996195, 0.0871557, -0.422618, -0.0789899, 0.902859, 8.59874, -21.6, 27.0943 )
+
+[node name="rock26" parent="Rocks" instance=ExtResource( 10 )]
+transform = Transform( 0.640857, 0.762578, -0.0881899, -0.707107, 0.541675, -0.454519, -0.298836, 0.353642, 0.88636, -38.4386, -21.6, 49.0282 )
+
+[node name="Objects" type="Spatial" parent="."]
+
+[node name="Airplane" parent="Objects" instance=ExtResource( 13 )]
+transform = Transform( 0.00573576, -0.00742404, -0.00346189, 0.00819152, 0.00519837, 0.00242404, 0, -0.00422618, 0.00906308, -15.2, 0, 17.9 )
+
+[node name="Apple" parent="Objects" instance=ExtResource( 12 )]
+transform = Transform( 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0, 1, 23.5, -12.8, 34.8 )
+
+[node name="Apple2" parent="Objects" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, -16.9, 0.4, 34.8 )
+
+[node name="Dog in plane" parent="Objects" instance=ExtResource( 14 )]
+transform = Transform( -0.773789, 0.023099, 0.633022, 0.17101, 0.969846, 0.173648, -0.609923, 0.24262, -0.754407, 58.9, 0, 28.4 )
+
+[node name="Earth" parent="Objects" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3, 0, 57.8 )
+
+[node name="Eggplant" parent="Objects" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 30.8, 24.3, 68.4 )
+
+[node name="Magic Carpet" parent="Objects" instance=ExtResource( 17 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, -19, 46.5 )
+
+[node name="Paper airplane" parent="Objects" instance=ExtResource( 18 )]
+transform = Transform( 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 22.9, 8.4, 7.8 )
+
+[node name="Planet" parent="Objects" instance=ExtResource( 19 )]
+transform = Transform( 0.819152, -0.573576, 0, 0.573576, 0.819152, 0, 0, 0, 1, 44.8, 19.6, 76.6 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 4.3, 0 )
+shadow_enabled = true
