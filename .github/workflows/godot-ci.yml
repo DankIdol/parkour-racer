@@ -2,7 +2,7 @@ name: "godot-ci export"
 on: push
 
 env:
-  GODOT_VERSION: 3.4
+  GODOT_VERSION: 3.3.4
   EXPORT_NAME: parkour
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: windows
+      - name: Export
         run: |
           mkdir -v -p build/windows
           cd $EXPORT_NAME
@@ -45,7 +45,7 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: linux
+      - name: Export
         run: |
           mkdir -v -p build/linux
           cd $EXPORT_NAME
@@ -70,7 +70,7 @@ jobs:
         run: |
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
-      - name: mac
+      - name: Export
         run: |
           mkdir -v -p build/mac
           cd $EXPORT_NAME
