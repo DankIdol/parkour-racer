@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Models/Objects/Fan.glb" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Objects/Fan.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Images/windparticle.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+params_cull_mode = 2
+albedo_color = Color( 0, 0.627451, 1, 1 )
+emission_enabled = true
+emission = Color( 0.207843, 0.576471, 1, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.180392, 0.239216, 0.462745, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotate"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fan Blade:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
+}
+
+[sub_resource type="CylinderShape" id=4]
+radius = 2.7
+height = 10.2
+
+[sub_resource type="Curve" id=5]
+_data = [ Vector2( 0, 0.156818 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+width = 128
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 2, 1 )
+gravity = Vector3( 0, 0, -10 )
+scale_curve = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=8]
+flags_transparent = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=9]
+material = SubResource( 8 )
+size = Vector2( 0.2, 0.2 )
+
+[node name="Fan" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Fan Blade" parent="." index="0"]
+transform = Transform( 0.8919, 0.452232, 0, -0.452232, 0.8919, 0, 0, 0, 1, 0, 0, 0 )
+material/0 = SubResource( 1 )
+
+[node name="Fan Shell" parent="." index="1"]
+material/0 = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/rotate = SubResource( 3 )
+
+[node name="Area" type="Area" parent="." index="3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -5.4 )
+shape = SubResource( 4 )
+
+[node name="Particles" type="Particles" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1 )
+amount = 1024
+lifetime = 1.25
+visibility_aabb = AABB( -2.4, -2.4, -9.8, 4.8, 4.8, 9.8 )
+process_material = SubResource( 7 )
+draw_pass_1 = SubResource( 9 )
+
+[node name="Target" type="Position3D" parent="." index="5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.7 )
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

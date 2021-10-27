@@ -253,7 +253,7 @@ func _physics_process(delta):
 	
 # FUNCTIONS YOU CALL FROM OUTSIDE 
 
-func in_water(entered):
+func in_water(entered: bool):
 	if entered:
 		$GUI/Water/Tween.interpolate_property($GUI/Water, "modulate", Color(1, 1, 1, 0), Color(1, 1, 1, .25), .5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	else:
@@ -263,12 +263,21 @@ func in_water(entered):
 func die():
 	camera.shake()
 	$GUI/Blood.visible = true
-#	is_dead = true
+	is_dead = true
 	$Timers/DeathTimer.start()
+
+func add_force(force: Vector3):
+	gravity_vec = force
 
 # -----------------------------------
 
 func debug():
+	if Input.is_action_just_pressed("cursor"):
+		if Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			
 	$Debug/Grappling.text = "grappling: " + str(grappling)
 	$Debug/Wallrunning.text = "wallrunning: " + str(wallrunning)
 	$Debug/Vectors.text = "velocity: " + str(velocity) + "\ngravity: " + str(gravity_vec)
