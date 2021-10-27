@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/crosshair.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Scenes/Player/Camera.gd" type="Script" id=16]
 [ext_resource path="res://Assets/Images/dot.png" type="Texture" id=17]
 [ext_resource path="res://addons/PerfMonitor/PerfMonitor.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Images/BloodOverlay.png" type="Texture" id=19]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -367,6 +368,16 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="GUI/Water"]
 
+[node name="Blood" type="TextureRect" parent="GUI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 19 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Timers" type="Node" parent="."]
 
 [node name="DashLineTimer" type="Timer" parent="Timers"]
@@ -390,7 +401,12 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
+[node name="DeathTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Debug" type="Node2D" parent="."]
+visible = false
 
 [node name="Grappling" type="Label" parent="Debug"]
 margin_left = 5.0397
@@ -482,5 +498,6 @@ script = ExtResource( 18 )
 [connection signal="timeout" from="Timers/ThrowableTimer" to="." method="_on_ThrowableTimer_timeout"]
 [connection signal="timeout" from="Timers/SlideTimer" to="." method="_on_SlideTimer_timeout"]
 [connection signal="timeout" from="Timers/ClimbTimer" to="." method="_on_ClimbTimer_timeout"]
+[connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_DeathTimer_timeout"]
 
 [editable path="Head/FingerGun"]

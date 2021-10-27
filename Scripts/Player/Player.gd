@@ -19,6 +19,8 @@ var velocity = Vector3()
 var gravity_vec = Vector3()
 var movement = Vector3()
 
+var is_dead = false
+
 var was_in_air = false
 var prev_gravity = 0
 
@@ -209,46 +211,47 @@ func _process(delta):
 	$GUI/ThrowableIcon.visible = can_throw
 		
 func _physics_process(delta):
-	crosshair.visible = grapplecast.is_colliding()
-	
-	#get keyboard input
-	direction = Vector3.ZERO
-	var h_rot = global_transform.basis.get_euler().y
-	var f_input = Input.get_action_strength("s") - Input.get_action_strength("w")
-	var h_input = Input.get_action_strength("d") - Input.get_action_strength("a")
-	direction = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
-	
-	#jumping and gravity
-	if is_on_floor() and not grappling:
-		snap = -get_floor_normal()
-		accel = ACCEL_DEFAULT
-		gravity_vec = Vector3.ZERO
-	else:
-		snap = Vector3.DOWN
-		accel = ACCEL_AIR
-		gravity_vec += Vector3.DOWN * gravity * delta
+	if not is_dead:
+		crosshair.visible = grapplecast.is_colliding()
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		snap = Vector3.ZERO
-		gravity_vec = Vector3.UP * jump
+		#get keyboard input
+		direction = Vector3.ZERO
+		var h_rot = global_transform.basis.get_euler().y
+		var f_input = Input.get_action_strength("s") - Input.get_action_strength("w")
+		var h_input = Input.get_action_strength("d") - Input.get_action_strength("a")
+		direction = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
 		
-	$GrapplingHook/GrappleLine.set_point_position(0, $Head/FingerGun/Muzzle.global_transform.origin)
-	grapple()
-	wallrun()
-	dash()
-	throw()
-	slide()
-	climb()
-	camera_shake()
-	
-	debug()
+		#jumping and gravity
+		if is_on_floor() and not grappling:
+			snap = -get_floor_normal()
+			accel = ACCEL_DEFAULT
+			gravity_vec = Vector3.ZERO
+		else:
+			snap = Vector3.DOWN
+			accel = ACCEL_AIR
+			gravity_vec += Vector3.DOWN * gravity * delta
+			
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			snap = Vector3.ZERO
+			gravity_vec = Vector3.UP * jump
+			
+		$GrapplingHook/GrappleLine.set_point_position(0, $Head/FingerGun/Muzzle.global_transform.origin)
+		grapple()
+		wallrun()
+		dash()
+		throw()
+		slide()
+		climb()
+		camera_shake()
 	
 	#make it move
 	velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 	movement = velocity + gravity_vec
-	
 	move_and_slide_with_snap(movement, snap, Vector3.UP)
 	
+	debug()
+	
+# FUNCTIONS YOU CALL FROM OUTSIDE 
 
 func in_water(entered):
 	if entered:
@@ -257,6 +260,14 @@ func in_water(entered):
 		$GUI/Water/Tween.interpolate_property($GUI/Water, "modulate", Color(1, 1, 1, .25), Color(1, 1, 1, 0), .5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$GUI/Water/Tween.start()
 	
+func die():
+	camera.shake()
+	$GUI/Blood.visible = true
+#	is_dead = true
+	$Timers/DeathTimer.start()
+
+# -----------------------------------
+
 func debug():
 	$Debug/Grappling.text = "grappling: " + str(grappling)
 	$Debug/Wallrunning.text = "wallrunning: " + str(wallrunning)
@@ -304,3 +315,9 @@ func _on_FingerGunAnimationPlayer_animation_finished(anim_name):
 
 func _on_ClimbTimer_timeout():
 	$GUI/BottomNotifier.visible = false
+
+
+func _on_DeathTimer_timeout():
+	# TODO checkpoint
+	$GUI/Blood.visible = false
+	get_tree().reload_current_scene()
