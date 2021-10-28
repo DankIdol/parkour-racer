@@ -12,10 +12,10 @@
 [ext_resource path="res://Scenes/Buildings/Fantasy/CirclePlatform.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Buildings/Fantasy/WallWithStairs.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/Arenas/TestArena.gd" type="Script" id=12]
-[ext_resource path="res://Scenes/Objects/Magic Carpet.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Objects/SpikePlatform.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/Player/PlayerModel.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Scenes/Objects/Fan.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Models/Objects/OBJ/WoodFloor/model.obj" type="ArrayMesh" id=17]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -311,9 +311,6 @@ transform = Transform( 0.951252, 0.173649, -0.254887, -0.258819, -5.11572e-08, -
 [node name="CirclePlatform" parent="Course" instance=ExtResource( 10 )]
 transform = Transform( 0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, 0.819152, -18.4, -11.5, 149.1 )
 
-[node name="Magic Carpet" parent="Course/CirclePlatform" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0728, -49.1, 38.664 )
-
 [node name="ReverseCone" parent="Course" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -82.2, 253.3 )
 
@@ -337,3 +334,424 @@ transform = Transform( 0.939693, -1.49502e-08, -0.34202, -0.34202, -4.10753e-08,
 
 [node name="Fan10" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.939693, -1.49502e-08, -0.34202, -0.34202, -4.10753e-08, -0.939693, 0, 1, -4.37114e-08, 10.2, 2.13038, 115.9 )
+
+[node name="MMITool2" type="Spatial" parent="."]
+script = ExtResource( 7 )
+mesh = ExtResource( 17 )
+add_collider = true
+
+[node name="model" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 35 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model2" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 38.7 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model3" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 42.5 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model4" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 46.3 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model5" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4, 0, 35 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model6" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4, 0, 38.7 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model7" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4, 0, 42.5 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model8" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4, 0, 46.3 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model9" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7, 0, 35 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model10" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7, 0, 38.7 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model11" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7, 0, 42.5 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model12" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.7, 0, 46.3 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model13" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9, 0, 35 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model14" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9, 0, 38.7 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model15" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9, 0, 42.5 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
+
+[node name="model16" type="MeshInstance" parent="MMITool2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.9, 0, 46.3 )
+mesh = ExtResource( 17 )
+material/0 = null
+material/1 = null
+material/2 = null
+material/3 = null
+material/4 = null
+material/5 = null
+material/6 = null
+material/7 = null
+material/8 = null
+material/9 = null
+material/10 = null
+material/11 = null
+material/12 = null
+material/13 = null
+material/14 = null
+material/15 = null
+material/16 = null
+material/17 = null
+material/18 = null
+material/19 = null
+material/20 = null
+material/21 = null
