@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Materials/Dark.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/Green.tres" type="Material" id=2]
 [ext_resource path="res://Scripts/Arenas/RandomArena.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/HDRIs/oil-sky.jpg" type="Texture" id=5]
 
-[sub_resource type="PanoramaSky" id=1]
-panorama = ExtResource( 5 )
+[sub_resource type="ProceduralSky" id=1]
 
 [sub_resource type="Environment" id=2]
 background_mode = 2

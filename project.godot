@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "ArrayUtils",
+"language": "GDScript",
+"path": "res://addons/SIsilicon.3d.text/array_utils.gd"
+}, {
 "base": "Panel",
 "class": "MonitorPlotPanel",
 "language": "GDScript",
 "path": "res://addons/PerfMonitor/MonitorPlotPanel.gd"
 } ]
 _global_script_class_icons={
+"ArrayUtils": "",
 "MonitorPlotPanel": ""
 }
 
@@ -31,7 +37,7 @@ window/size/height=900
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MMITool/plugin.cfg", "res://addons/PerfMonitor/plugin.cfg", "res://addons/jm_pp_outlines/plugin.cfg", "res://addons/line_3d/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/MMITool/plugin.cfg", "res://addons/PerfMonitor/plugin.cfg", "res://addons/SIsilicon.3d.text/plugin.cfg", "res://addons/jm_pp_outlines/plugin.cfg", "res://addons/line_3d/plugin.cfg" )
 
 [input]
 

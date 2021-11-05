@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/Materials/Green.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Materials/Dark.tres" type="Material" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Materials/Purple.tres" type="Material" id=4]
-[ext_resource path="res://Assets/HDRIs/80s-Synthwave-And-Retrowave-Background-Pack-07.jpg" type="Texture" id=5]
 [ext_resource path="res://Scenes/Buildings/Fantasy/Islands/Island0.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/MMITool/Node.gd" type="Script" id=7]
 [ext_resource path="res://Assets/Models/Objects/OBJ/CUPIC_ICEBERG.obj" type="ArrayMesh" id=8]
@@ -20,8 +19,7 @@
 
 [sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="PanoramaSky" id=2]
-panorama = ExtResource( 5 )
+[sub_resource type="ProceduralSky" id=2]
 
 [sub_resource type="Environment" id=3]
 background_mode = 2
