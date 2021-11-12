@@ -139,7 +139,8 @@ func throw():
 
 func slide():
 	if Input.is_action_pressed("slide") and can_slide:
-		camera.shake()
+		pass
+#		camera.shake()
 #		scale.y = .3
 #		$GUI/TopNotifier.visible = true
 #		$Timers/SlideTimer.start()
@@ -174,13 +175,13 @@ func _ready():
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
-	$Debug/Monitor.os_time_per_frame()
-	$Debug/Monitor.add_perf_monitor(Performance.TIME_FPS)
-	$Debug/Monitor.add_perf_monitor(Performance.TIME_PHYSICS_PROCESS)
-	$Debug/Monitor.add_perf_monitor(Performance.MEMORY_DYNAMIC)
-	$Debug/Monitor.add_perf_monitor(Performance.RENDER_OBJECTS_IN_FRAME)
-	$Debug/Monitor.add_perf_monitor(Performance.RENDER_VERTICES_IN_FRAME)
-	$Debug/Monitor.add_perf_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME)
+#	$Debug/Monitor.os_time_per_frame()
+#	$Debug/Monitor.add_perf_monitor(Performance.TIME_FPS)
+#	$Debug/Monitor.add_perf_monitor(Performance.TIME_PHYSICS_PROCESS)
+#	$Debug/Monitor.add_perf_monitor(Performance.MEMORY_DYNAMIC)
+#	$Debug/Monitor.add_perf_monitor(Performance.RENDER_OBJECTS_IN_FRAME)
+#	$Debug/Monitor.add_perf_monitor(Performance.RENDER_VERTICES_IN_FRAME)
+#	$Debug/Monitor.add_perf_monitor(Performance.RENDER_DRAW_CALLS_IN_FRAME)
 
 func _input(event):
 	#get mouse input for camera rotation
